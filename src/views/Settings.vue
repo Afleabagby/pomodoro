@@ -4,9 +4,11 @@
       b-row
         b-col(cols="12")
           b-table(:items="items" :fields="fields" @row-clicked="selectAlarm")
+            //- cell({key})
             template(#cell(file)="data")
               audio(controls :src="'./sounds/'+data.item.file")
             template(#cell(select)="data")
+              //- 如果file 是我們選的alarm，就顯示icon
               font-awesome-icon(v-if="data.item.file === alarm" :icon="['fas', 'check']")
 </template>
 
@@ -42,7 +44,7 @@ export default {
     }
   },
   methods: {
-    selectAlram (item) {
+    selectAlarm (item) {
       this.$store.commit('selectAlarm', item.file)
     }
   },
