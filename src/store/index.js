@@ -6,7 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     alarm: 'alarm1.mp3',
-    todos: []
+    todos: [],
+    current: '',
+    finished: [],
+    isBreak: false
   },
   mutations: {
     selectAlarm (state, data) {
@@ -20,6 +23,22 @@ export default new Vuex.Store({
           model: data
         }
       )
+    },
+    delTodo (state, index) {
+      state.todos.splice(index, 1)
+    },
+    editTodo (state, index) {
+      // 傳進來
+      // edit 改為 false
+      state.todos[index].edit = true
+    },
+    changeTodo (state, index) {
+      state.todos[index].edit = false
+      state.todos[index].name = state.todos[index].model
+    },
+    cancelTodo (state, index) {
+      state.todos[index].edit = false
+      state.todos[index].model = state.todos[index].name
     }
   },
   actions: {
