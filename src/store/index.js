@@ -3,13 +3,17 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const time = parseInt(process.env.VUE_APP_TIME)
+const timeBreak = parseInt(process.env.VUE_APP_TIME_BREAK)
+
 export default new Vuex.Store({
   state: {
     alarm: 'alarm1.mp3',
     todos: [],
     current: '',
     finished: [],
-    isBreak: false
+    isBreak: false,
+    timeleft: time
   },
   mutations: {
     selectAlarm (state, data) {
