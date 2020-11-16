@@ -77,9 +77,7 @@ export default {
       this.$store.commit('editTodo', index)
     },
     stateTodo (data) {
-      if (data === 0) {
-        return null
-      } else if (data < 2) {
+      if (data < 2) {
         return false
       } else {
         return true

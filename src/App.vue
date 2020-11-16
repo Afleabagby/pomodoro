@@ -9,5 +9,7 @@
             //- https://bootstrap-vue.org/docs/components/nav#comp-ref-b-nav-item
             b-nav-item(to='/list' active-class="active") 待辦
             b-nav-item(to='/settings' active-class="active") 設定
-    router-view
+    //- 避免元件在換頁時被銷毀
+    keep-alive
+      router-view
 </template>

@@ -49,7 +49,7 @@ export default {
     }
   },
   computed: {
-    alram () {
+    alarm () {
       return this.$store.state.alarm
     }
   }
